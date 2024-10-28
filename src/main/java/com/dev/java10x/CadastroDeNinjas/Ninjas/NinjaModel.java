@@ -1,5 +1,6 @@
-package com.dev.java10x.CadastroDeNinjas;
+package com.dev.java10x.CadastroDeNinjas.Ninjas;
 
+import com.dev.java10x.CadastroDeNinjas.Missoes.MissaoModel;
 import jakarta.persistence.*;
 
 @Entity
@@ -13,6 +14,10 @@ public class NinjaModel {
     private String email;
     private int idade;
 
+    @ManyToOne
+    @JoinColumn(name = "missao_id")
+    private MissaoModel missao;
+
     public NinjaModel() {
     }
 
@@ -21,6 +26,15 @@ public class NinjaModel {
         this.idade = idade;
         this.email = email;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
 
     public String getNome() {
         return nome;
@@ -44,5 +58,13 @@ public class NinjaModel {
 
     public void setIdade(int idade) {
         this.idade = idade;
+    }
+
+    public void setMissao(MissaoModel missao) {
+        this.missao = missao;
+    }
+
+    public MissaoModel getMissao() {
+        return missao;
     }
 }
