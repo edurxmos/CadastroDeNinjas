@@ -3,7 +3,7 @@ package com.dev.java10x.CadastroDeNinjas.Missoes;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/missao")
 public class MissaoController {
 
     @PostMapping("/criar")
@@ -16,17 +16,17 @@ public class MissaoController {
         return "Mostrar Missoes";
     }
 
-    @GetMapping("/missao")
-    public String mostrarMissaoPorIdd() {
+    @GetMapping("/missaoID")
+    public String mostrarMissaoPorId() {
         return "Mostrar Missao por id";
     }
 
-    @PutMapping("/alterar")
+    @PutMapping("/alterarID")
     public String atualizarMissao() {
         return "Missao atualizada";
     }
 
-    @DeleteMapping("/deletar")
+    @DeleteMapping("/deletarID")
     public String deletarMissao() {
         return "Missao deletada por id";
     }
