@@ -19,4 +19,12 @@ public class NinjaService {
         return repository.findById(id).orElse(null);
     }
 
+    public NinjaModel criarNinja(NinjaModel ninja) {
+        return repository.save(ninja);
+
+        /*NinjaModel novoNinja = new NinjaModel(ninja.getNome(), ninja.getIdade(), ninja.getEmail());
+        repository.save(novoNinja);
+        return novoNinja;*/
+    }
+
 }
