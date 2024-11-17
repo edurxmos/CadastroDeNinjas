@@ -15,6 +15,8 @@ public class NinjaService {
         return repository.findAll();
     }
 
-
+    public NinjaModel ninjaPorId(Long id) {
+        return repository.findById(id).orElse(null);
+    }
 
 }
