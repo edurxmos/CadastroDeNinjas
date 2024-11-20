@@ -27,4 +27,8 @@ public class NinjaService {
         return novoNinja;*/
     }
 
+    public void deletarNinja(Long id) {
+        repository.deleteById(id);
+    }
+
 }
