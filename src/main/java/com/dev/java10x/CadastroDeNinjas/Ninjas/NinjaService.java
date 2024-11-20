@@ -27,6 +27,18 @@ public class NinjaService {
         return novoNinja;*/
     }
 
+    public NinjaModel atualizarNinja(Long id, NinjaModel ninjaAtualizado) {
+        if (repository.existsById(id)) {
+            NinjaModel ninja = repository.getReferenceById(id);
+            ninja.setNome(ninjaAtualizado.getNome());
+            ninja.setEmail(ninjaAtualizado.getEmail());
+            ninja.setIdade(ninjaAtualizado.getIdade());
+            ninja.setMissao(ninjaAtualizado.getMissao());
+            return repository.save(ninja);
+        }
+        return null;
+    }
+
     public void deletarNinja(Long id) {
         repository.deleteById(id);
     }
