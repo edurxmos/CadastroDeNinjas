@@ -10,6 +10,8 @@ public class NinjaService {
 
     @Autowired
     private NinjaRepository repository;
+    @Autowired
+    private NinjaMapper ninjaMapper;
 
     public List<NinjaModel> listarNinjas() {
         return repository.findAll();
@@ -19,9 +21,10 @@ public class NinjaService {
         return repository.findById(id).orElse(null);
     }
 
-    public NinjaModel criarNinja(NinjaModel ninja) {
-        return repository.save(ninja);
-
+    public NinjaDTO criarNinja(NinjaDTO ninjaDTO) {
+        NinjaModel ninja = ninjaMapper.map(ninjaDTO);
+        ninja = repository.save(ninja);
+        return ninjaMapper.map(ninja);
         /*NinjaModel novoNinja = new NinjaModel(ninja.getNome(), ninja.getIdade(), ninja.getEmail());
         repository.save(novoNinja);
         return novoNinja;*/
